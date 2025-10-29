@@ -1,0 +1,474 @@
+@font-face {
+   font-family: custom_p;
+   src: url("./fonts/Novecento-Font/NovecentoBold/NovecentoBold.ttf");
+}
+@font-face {
+   font-family: custom_h;
+   src: url("./fonts/novecentowide.ttf")
+
+}
+p{
+   font-family: "custom_h";
+   margin: 0;
+}
+button::before{
+   content: "X";
+   color: white;
+}
+*{
+   transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -webkit-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -moz-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -ms-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -o-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   border-radius: 3px;
+   box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+   display: none;
+   -ms-overflow-style: none;
+   /*IEandEdge*/scrollbar-width: none;
+}
+.row{
+}
+.column{
+   display: flex;
+   flex-direction: column;
+}
+.settings{
+   transition: none;
+   backdrop-filter: blur(3px);
+   background-color: #ffffff50;
+   position: absolute;
+   display: flex;
+   z-index: 7;
+   width: 100%;
+   max-height: 0;
+   opacity: 0; 
+   overflow: hidden;
+   transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   z-index: -1;
+   /*Setinitialz-indexto-1sothatdiv_2isbehinddiv_1*/margin: -1% 0 0 0%;
+   padding: 0;
+   align-content: center;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+   -webkit-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -moz-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -ms-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+   -o-transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+}.settings.active {
+   opacity: 1;
+   max-height: 100vh;
+   z-index: 10; /* Change z-index to bring div_2 in front of div_1 */
+ }
+.settings > .top{
+   padding: 0 0 0 2%;
+   display: flex;
+   height: 8%;
+   flex-direction: row;
+   /* align-content: center; */
+   justify-content: flex-start;
+   align-items: center;
+}
+.settings > .mid_div{
+   justify-content: flex-start;
+   display: flex;
+   flex-direction: column;
+}
+.settings > .mid_div > div{
+   padding: 0 0 0 5%;
+   height: 10%;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}
+.mod_on{
+   color: rgba(255, 0, 0, 0.5);
+}
+.damage_on{
+   background: #ffa31a;
+   color: white;
+}
+.flex_column{
+   flex-direction: column;
+}
+.right_side{
+   overflow: auto;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-content: flex-start;
+   justify-content: center;
+   width: 50%;
+   float: right;
+   margin-top: 3%;
+}
+#nav_id{
+   background: black;
+}
+.nav_link_btn {
+  background: #202020;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: 0.2s;
+}
+.nav_link_btn:hover {
+  background: #303030;
+}
+#nav_div{
+   color: #00000000;
+   z-index: 6;
+   padding: 0;
+   margin: -1% 0px 0px 0%;
+   display: flex;
+   position: absolute;
+   width: 100%;
+   height: 6%;
+   align-items: center;
+   flex-direction: row;
+   align-content: flex-start;
+   flex-wrap: nowrap;
+   justify-content: space-between;
+}
+#nav_div > div{
+   background: #fff;
+   width: 20%;
+}
+#nav_div > .left_div{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   width: 30%;
+}
+#nav_div > .left_div > button{
+   z-index: 5;
+   width: 30px;
+   height: 30px;
+   background: #00000020;
+   border: none;
+   -webkit-border-radius: 50%;
+}
+#nav_div > .left_div > button:hover{
+   background: #00000050;
+}
+#nav_div > .mid_div{
+   width: -webkit-fill-available;
+}
+.CharacterDIV{
+   opacity: 0;
+   max-height: 0;
+   backdrop-filter: blur(1px);
+   background: #00000050;
+   display: flex;
+   overflow: hidden;
+   position: absolute;
+   margin: -1% 0 0 0%;
+   justify-content: flex-start;
+   align-items: center;
+   flex-direction: row;
+   transition: opacity 0.3s ease-in-out, height 0.3s;
+   -webkit-transition: opacity 0.3s ease-in-out, height 0.3s;
+   -moz-transition: opacity 0.3s ease-in-out, height 0.3s;
+   -ms-transition: opacity 0.3s ease-in-out, height 0.3s;
+   -o-transition: opacity 0.3s ease-in-out, height 0.3s;
+}
+.CharacterDIV.active{
+   opacity: 1;
+   max-height: 100vh;
+   z-index: 7;
+}
+.CharacterDIV div{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   transition: none;
+   -webkit-transition: none;
+}
+.CharacterDIV button{
+   align-self: center;
+   z-index: 2;
+   margin: 10%;
+}
+.CharacterDIV > .left{
+   padding: 2% 0 0 0;
+   width: 10%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+
+}.left > .skin{
+   position: absolute;
+   padding: 2% 2% 0 6%;
+   display: flex;
+   margin: -2% 0 0px 0;
+   max-width: 25%;
+   background: #ffffff99;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-content: flex-start;
+   flex-wrap: wrap;
+   align-items: baseline;
+}
+.left > .skin p{
+   z-index: 10;
+}
+.CharacterDIV > .main{
+   display: grid;
+   justify-items: center;
+   align-items: start;
+}
+.CharacterDIV > .main p{
+   margin: 0% 0% 1% -5%;
+   justify-self: baseline;
+   align-self: flex-end;
+   position: absolute;
+   z-index: 1;
+   font-size: 10vh;
+   color: white;
+   text-shadow: -2px 2px 10px #000000;
+}
+.CharacterDIV > .main img{
+   position: absolute;
+   z-index: 0;
+   height: 150%;
+   margin: 0;
+}
+.CharacterDIV > .main > .charNation{
+   height: auto;
+   width: 70%;
+   z-index: -1;
+   opacity: 0.8;
+   position: absolute;
+   align-self: end;
+   margin: 0 0 -8% 2%;
+}.CharacterDIV > .main > .nation_bg{
+   padding: 0;
+   display: flex;
+   z-index: -3;
+   position: absolute;
+   margin: -1% -26% 0% 0;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-content: space-between;
+}
+.CharacterDIV > .main > .nation_bg img{
+   position: unset;
+   z-index: -2;
+   opacity: 0.5;
+}
+.CharacterDIV > .right{
+   display: flex;
+   width: 55%;
+   flex-direction: column;
+   position: relative;
+   align-items: flex-end;
+   flex-grow: 1;
+   overflow: visible;
+   white-space: nowrap;
+   justify-content: flex-start;
+}
+.CharacterDIV > .right > .charName {
+   color: #fff;
+   margin: 5% 0 0 0;
+   height: fit-content;
+   position: absolute;
+   white-space: nowrap;
+   display: flex;
+   width: fit-content;
+   min-width: 97%;
+   flex-direction: row;
+   font-size: 50px;
+   justify-content: flex-start;
+}
+.charNameMOD {
+   color: rgb(225 50 50);
+}
+.CharacterDIV > .right > .charName > .name{
+   margin: 0;
+   text-wrap: nowrap;
+   font-family: "custom_h";
+} .CharacterDIV > .right >.charType{
+   color: #fff;
+   margin: 20% 0 0 0;
+   display: flex;
+   padding: 0;
+   height: 4.5%;
+   flex-direction: row;
+   justify-content: flex-start;
+   place-items: flex-start;
+   align-content: flex-start;
+   align-items: flex-start;
+} .charType img{
+   height: 100%;
+} .CharacterDIV > .right > .charStatRank{
+   display: flex;
+   height: fit-content;
+   flex-direction: row;
+   color: white;
+}.charStatRank > div > .tag{
+   font-size: 2vh;
+}
+.charStatRank > div > .rank{
+   font-size:5vh;
+}
+.right > .charBuff{
+   display: flex;
+   height: fit-content;
+   align-items: flex-start;
+   justify-content: flex-start;
+   flex-direction: row;
+}.charBuff div{
+   border-radius: 0;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   -ms-border-radius: 0;
+   -o-border-radius: 0;
+}
+.charBuff > .buffTile{
+   opacity: 0.8;
+   display: flex;
+   width: 31vh;
+   height: 20vh;
+   flex-wrap: wrap;
+   flex-direction: row;
+   align-content: center;
+   align-items: center;
+   justify-content: center;
+}.buffTile div {
+   width: calc(95%/3);
+   height: calc(95%/3)
+}
+ .buffTile  > .tile_buff{
+   background-color: rgb(82, 238, 238);
+} .buffTile  > .tile_char{
+   background-color: white;
+}.charBuff > .buff_detail{
+   width: -webkit-fill-available;
+   display: flex;
+   flex-direction: column;
+}.buff_detail > .gun_type{
+   height: 6vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}.gun_type img{
+   padding: 0.4vh;
+   height: -webkit-fill-available;
+}.buff_detail > .gun_buff{
+   display: flex;
+   flex-direction: row;
+}.gun_buff p{
+   color:white;
+}.gun_buff > div > .num{
+   font-size: 20px;
+}.gun_buff > div > .buff{
+   font-size: 12px;
+}
+.card_container{
+   overflow: hidden;
+   margin:  5px 5px;
+   position: relative;
+   width: 106px;
+   height: 178px;
+}
+.card_container, .card_container_inner{
+   padding: 0;
+}
+.card_container_inner{
+   display: flex;
+   width: inherit;
+   height: inherit;
+   flex-direction: column;
+   justify-content: flex-start;
+}
+.card_container_inner > *{
+   padding: 3px;
+   margin: -3px;
+}
+.card_container_inner > p{
+   font-weight: 600;
+   font-family: "custom_p";
+   position: absolute;
+   z-index: 4;
+   width: inherit;
+   text-align: right;
+}
+.card_frame{
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   z-index: 5;
+   background-color: #ffffff00;
+}
+.card_frame:hover{
+   mix-blend-mode: hard-light;
+   background-color: #ffffff50;
+}
+.card_frame:active{
+   background-color: #00000030;
+}
+.card_container_inner > #star{
+   color: #ffa31a;
+   font-size: 10px;
+   margin: -4px 0px 0px -5px;
+}
+.card_container_inner > #name{
+   text-align: left;
+   font-weight: bold;
+   margin-top: 138px;
+   margin-right: -10px;
+   font-size: 13px;
+   text-wrap: nowrap;
+}
+.card_container_inner > #index{
+   color: white;
+   font-size: 11.5px;
+   margin-top: 161px;
+   margin-right: 4px;
+}
+.card_container_inner img{
+   position: absolute;
+   width: inherit;
+   margin-top: -3px;
+   max-width: 100%;
+}
+.card_container_inner > .icon_img{
+   z-index: 3;
+   width: auto;
+   height: 28px;
+   margin: -3px 0px 0px 3px;
+   padding: 3px 3px 3px 0px;
+   align-self: flex-start;
+}
+.card_container_inner > .icon_img_extra{
+   margin: 96px -64px 0px 0px;
+   width: 42px;
+   z-index: 1;
+}
+.card_container_inner > .header_img{
+   z-index: 3;
+   margin-top: 137px;
+}
+.card_container_inner > .border{
+   z-index: 2;
+}
+.card_container_inner > .char_img{
+   z-index: 1;
+   margin-top: 9px;
+}
+.card_container_inner > .char_img_background{
+   z-index: 0;
+   margin-top: 9px;
+}
