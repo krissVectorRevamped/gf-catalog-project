@@ -472,3 +472,97 @@ button::before{
    z-index: 0;
    margin-top: 9px;
 }
+/* src/Admin.module.css */
+.admin_container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #1f1f1f;
+  color: white;
+  min-height: 100vh;
+  font-family: "custom_h";
+}
+
+.admin_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin_header h1 {
+  font-size: 2rem;
+}
+
+.admin_editor {
+   overflow-x: auto;
+  min-width: 600px; /* adjust as needed */
+  background: #2c2c2c;
+  padding: 1rem;
+  border-radius: 8px;
+  max-height: 70vh;
+  overflow: auto;
+  font-family: "custom_h"; /* your custom font */
+  font-size: 14px;
+  color: white; /* default text */
+}
+
+.admin_button {
+  background: #202020;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: 0.2s;
+}
+
+.admin_button:hover {
+  background: #303030;
+}
+.admin_editor .react-json-view {
+  font-family: "custom_h"; /* use your font */
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.admin_editor .string-value {
+  color: #ffb86c; /* orange for strings */
+}
+
+.admin_editor .number-value {
+  color: #8be9fd; /* cyan for numbers */
+}
+
+.admin_editor .boolean-value {
+  color: #50fa7b; /* green for booleans */
+}
+
+.admin_editor .null-value {
+  color: #ff5555; /* red for nulls */
+}
+
+.admin_editor .object-key,
+.admin_editor .array-key {
+  color: #f1fa8c; /* yellow for keys */
+  font-weight: bold;
+}
+
+.admin_editor .brace,
+.admin_editor .bracket {
+  color: #ffffff;
+}
+
+.admin_editor .icon-button {
+  color: #ff79c6; /* pink for expand/collapse buttons */
+}
+
+.admin_editor .hovered {
+  background-color: #44475a; /* subtle hover for rows */
+}
+
+.admin_editor .react-json-view__clipboard {
+  display: none; /* hide copy icons if needed */
+}

@@ -9,8 +9,10 @@ import game_card_data from "./json/tdoll_data";
 import game_char_data from "./json/char_data_full";
 import * as GFL_card from "./girls_frontline";
 const root = ReactDOM.createRoot(document.getElementById('root'));
-//import { BrowserRouter, Routes, Route, link} from "react-router-dom";
-//import Catalog from "./js/Catalog";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import Catalog from "./js/Catalog";
+import ReactJson from "react-json-view";
+import stylesAdmin from "./Admin.module.css";
 //import AdminPanel from "./js/AdminPanel";
 
 
@@ -97,7 +99,11 @@ let Navigation = (props) => {
         }}/>
         <div id={styles[props.id]}/>
       </div>
-      <div className={styles.mid_div}></div>
+      <div className={styles.mid_div}>
+         <Link to="/admin">
+            <button>Admin Panel</button>
+          </Link>
+      </div>
     </SettingContext.Provider>
       <div className={styles.right_div}></div>
     </div>
@@ -167,7 +173,7 @@ const Main = () => {
   </div>
   )
 }
-const main = <Main/>
+//const main = <Main/>
 // other sub-function
 
 function sortGameDatabase(type){
@@ -199,4 +205,52 @@ function sortGameDatabase(type){
 
 // listener
 
-root.render(main)
+const AdminPanel = () => {
+  const [jsonData, setJsonData] = useState(game_card_data);
+
+  const handleEdit = (edit) => {
+    console.log("Edited:", edit);
+    setJsonData(edit.updated_src);
+  };
+
+  const handleAdd = (add) => {
+    setJsonData(add.updated_src);
+  };
+
+  const handleDelete = (del) => {
+    setJsonData(del.updated_src);
+  };
+  return (
+    <div style={{ padding: "2rem" }}>
+      <h1>Admin Panel</h1>
+      <div className={styles.admin_editor}>
+        <ReactJson
+          src={jsonData}
+          onEdit={handleEdit}
+          onAdd={handleAdd}
+          onDelete={handleDelete}
+          enableClipboard={true}
+          displayDataTypes={false}
+        />
+      </div>
+      <Link to="/">
+        <button>← Back to Catalog</button>
+      </Link>
+    </div>
+  );
+};
+
+
+const Root = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/admin" element={<AdminPanel />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+root.render(<Root />);
+

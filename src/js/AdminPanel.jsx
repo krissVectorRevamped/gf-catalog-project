@@ -49,6 +49,15 @@ export default function AdminPanel() {
 
   return (
     <div className="p-4">
+      <ReactJson
+          src={jsonData}
+          onEdit={handleEdit}
+          onAdd={handleAdd}
+          onDelete={handleDelete}
+          enableClipboard={true}
+          displayDataTypes={false}
+          theme="monokai"
+        />
       <h1 className="text-2xl mb-2">Admin Panel</h1>
       <Link to="/" className="text-blue-500 underline">← Back to Catalog</Link>
 
