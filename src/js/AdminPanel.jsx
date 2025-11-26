@@ -1,85 +1,148 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import charactersData from '../json/tdoll_data.json';
+import styles from "../Admin.module.css";
 
 export default function AdminPanel() {
-  const [form, setForm] = useState({
-    index: "",
-    name: "",
-    rarity: "",
-    type: "",
-  });
   const [characters, setCharacters] = useState([]);
+  const [editingCharacter, setEditingCharacter] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
+  useEffect(() => {
+    setCharacters(Object.values(charactersData)); // populate from JSON
+  }, []);
 
-  // Loads the local JSON file
-  const loadCharacters = async () => {
-    const res = await fetch("/json/characters.json");
-    const data = await res.json();
-    setCharacters(data);
-  };
+  function handleEdit(id) {
+    const char = characters.find(c => c.id === id);
+    setEditingCharacter({ ...char });
+  }
 
-  // Adds new entry to memory (you still export manually)
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const newChar = {
-      index: Number(form.index),
-      name: form.name.split(",").map((n) => n.trim()),
-      rarity: Number(form.rarity),
-      type: form.type,
-    };
-    setCharacters((prev) => [...prev, newChar]);
-  };
+  function handleDelete(id) {
+    if (!window.confirm("Delete this entry?")) return;
+    setCharacters(characters.filter(c => c.id !== id));
+    // NOTE: This won't save to JSON, only frontend.
+  }
 
-  // Export the edited JSON for replacement
-  const exportJSON = () => {
-    const blob = new Blob([JSON.stringify(characters, null, 2)], {
-      type: "application/json",
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "characters.json";
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+  function CharacterEditForm({ initialData, onSaved, onCancel }) {
+    const [formData, setFormData] = useState(initialData);
 
-  return (
-    <div className="p-4">
-      <ReactJson
-          src={jsonData}
-          onEdit={handleEdit}
-          onAdd={handleAdd}
-          onDelete={handleDelete}
-          enableClipboard={true}
-          displayDataTypes={false}
-          theme="monokai"
-        />
-      <h1 className="text-2xl mb-2">Admin Panel</h1>
-      <Link to="/" className="text-blue-500 underline">← Back to Catalog</Link>
+    function handleChange(e) {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
 
-      <form onSubmit={handleAdd} className="grid grid-cols-2 gap-2 mt-4">
-        <input name="index" placeholder="Index" onChange={handleChange} value={form.index} />
-        <input name="name" placeholder="Names (comma separated)" onChange={handleChange} value={form.name} />
-        <input name="rarity" placeholder="Rarity" onChange={handleChange} value={form.rarity} />
-        <input name="type" placeholder="Type (HG, AR...)" onChange={handleChange} value={form.type} />
-        <button type="submit">Add to List</button>
-      </form>
+    function handleSubmit(e) {
+      e.preventDefault();
+      if (formData.id) {
+        // update existing
+        const updated = characters.map(c => c.id === formData.id ? formData : c);
+        setCharacters(updated);
+      } else {
+        // add new
+        formData.id = Date.now().toString();
+        setCharacters([...characters, formData]);
+      }
+      onSaved();
+    }
 
-      <div className="flex gap-2 mt-4">
-        <button onClick={loadCharacters}>Load Existing JSON</button>
-        <button onClick={exportJSON}>Export Updated JSON</button>
-      </div>
+    return (
+  <form className={styles.admin_editor} onSubmit={handleSubmit}>
+    <h3>{formData.id ? "Edit Character" : "Add Character"}</h3>
 
-      <div className="mt-4">
-        <h2>Preview:</h2>
-        <pre className="bg-gray-100 p-2 overflow-x-auto text-sm">
-          {JSON.stringify(characters, null, 2)}
-        </pre>
-      </div>
+    <input
+      name="name"
+      placeholder="Name"
+      value={formData.name || ""}
+      onChange={handleChange}
+    />
+
+    <input
+      name="image"
+      placeholder="Image URL"
+      value={formData.image || ""}
+      onChange={handleChange}
+    />
+
+    <input
+      name="series"
+      placeholder="Series"
+      value={formData.series || ""}
+      onChange={handleChange}
+    />
+
+    <input
+      name="role"
+      placeholder="Role"
+      value={formData.role || ""}
+      onChange={handleChange}
+    />
+
+    <input
+      name="faction"
+      placeholder="Faction"
+      value={formData.faction || ""}
+      onChange={handleChange}
+    />
+
+    <textarea
+      name="description"
+      placeholder="Description"
+      value={formData.description || ""}
+      onChange={handleChange}
+    />
+
+    <div className={styles.form_buttons}>
+      <button type="submit" className={styles.admin_button}>Save</button>
+      <button
+        type="button"
+        onClick={onCancel}
+        className={styles.admin_button}
+      >
+        Cancel
+      </button>
     </div>
-  );
+  </form>
+);
+  }
+
+return (
+  <div className={styles.admin_container}>
+    <h2>Character Management</h2>
+
+    <div className={styles.admin_list}>
+      {characters.map((char) => (
+        <div className={styles.admin_card} key={char.id}>
+          <img src={char.image} alt="" className="thumb" />
+          <div>{char.name}</div>
+          <div>ID: {char.id}</div>
+          <button
+            onClick={() => handleEdit(char.id)}
+            className={styles.admin_button}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => handleDelete(char.id)}
+            className={styles.admin_button}
+          >
+            Delete
+          </button>
+        </div>
+      ))}
+    </div>
+
+    <button
+      onClick={() => setEditingCharacter({})}
+      className={styles.admin_button}
+    >
+      Add New Character
+    </button>
+
+    {editingCharacter && (
+      <CharacterEditForm
+        initialData={editingCharacter}
+        onSaved={() => setEditingCharacter(null)}
+        onCancel={() => setEditingCharacter(null)}
+      />
+    )}
+  </div>
+);
+
 }

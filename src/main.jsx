@@ -12,8 +12,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Catalog from "./js/Catalog";
 import ReactJson from "react-json-view";
-import stylesAdmin from "./Admin.module.css";
-//import AdminPanel from "./js/AdminPanel";
+//import stylesAdmin from "./Admin.module.css";
+import AdminPanel from "./js/AdminPanel.jsx";
+
+
 
 
 console.log(game_char_data)
@@ -203,42 +205,7 @@ function sortGameDatabase(type){
   return arr;
 }
 
-// listener
-
-const AdminPanel = () => {
-  const [jsonData, setJsonData] = useState(game_card_data);
-
-  const handleEdit = (edit) => {
-    console.log("Edited:", edit);
-    setJsonData(edit.updated_src);
-  };
-
-  const handleAdd = (add) => {
-    setJsonData(add.updated_src);
-  };
-
-  const handleDelete = (del) => {
-    setJsonData(del.updated_src);
-  };
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Admin Panel</h1>
-      <div className={styles.admin_editor}>
-        <ReactJson
-          src={jsonData}
-          onEdit={handleEdit}
-          onAdd={handleAdd}
-          onDelete={handleDelete}
-          enableClipboard={true}
-          displayDataTypes={false}
-        />
-      </div>
-      <Link to="/">
-        <button>← Back to Catalog</button>
-      </Link>
-    </div>
-  );
-};
+// listener 
 
 
 const Root = () => {
