@@ -1,6 +1,9 @@
 import express from 'express';
 import fs from 'fs/promises';
 import cors from 'cors';
+import multer from "multer";
+import path from "path";
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -27,14 +30,24 @@ app.get('/api/characters', async (req, res) => {
 });
 
 // Add new (assuming data is an array, or keyed object)
-app.post('/api/characters', async (req, res) => {
-  const data = await readData();
-  const newChar = req.body;
-  // e.g. assign unique id
-  newChar.id = Date.now().toString();
-  data[newChar.id] = newChar;
-  await writeData(data);
-  res.json({ success: true, character: newChar });
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  const type = req.body.type; // e.g., "char_img" or "char_img_full"
+  const folder = type === "full" ? "./public/char_img_full" : "./public/char_img";
+
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, folder),
+    filename: (req, file, cb) => {
+      const uniqueName = Date.now() + '-' + file.originalname;
+      cb(null, uniqueName);
+    }
+  });
+
+  const upload = multer({ storage }).single('image');
+
+  upload(req, res, function(err) {
+    if (err) return res.status(500).json({ error: "Upload failed" });
+    res.json({ url: `/${folder.replace('./public/', '')}/${req.file.filename}` });
+  });
 });
 
 // Update
@@ -60,5 +73,15 @@ app.delete('/api/characters/:id', async (req, res) => {
   await writeData(data);
   res.json({ success: true });
 });
+
+/*const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads'); // folder to store uploaded images
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  }
+});*/
 
 app.listen(3001, () => console.log('Server running on port 3001'));

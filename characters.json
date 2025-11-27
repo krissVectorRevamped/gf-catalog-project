@@ -1,0 +1,753 @@
+{
+  "0": {
+    "id": "0",
+    "index": 0,
+    "name": [
+      "Osage",
+      "Soggy"
+    ],
+    "rarity": "EXTRA",
+    "type": "AR",
+    "has_MODIII": false
+  },
+  "1": {
+    "id": "1",
+    "index": 1,
+    "name": [
+      "M1873",
+      "SAA"
+    ],
+    "rarity": 4,
+    "type": "HG",
+    "has_MODIII": true
+  },
+  "3": {
+    "id": "3",
+    "index": 3,
+    "name": [
+      "IDW",
+      "IDW"
+    ],
+    "rarity": 2,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "4": {
+    "id": "4",
+    "index": 4,
+    "name": [
+      "PA15",
+      "PA-15"
+    ],
+    "rarity": 5,
+    "type": "HG",
+    "has_MODIII": false
+  },
+  "6": {
+    "id": "6",
+    "index": 6,
+    "name": [
+      "TT33",
+      "Tokarev"
+    ],
+    "rarity": 3,
+    "type": "HG",
+    "has_MODIII": false
+  },
+  "7": {
+    "id": "7",
+    "index": 7,
+    "name": [
+      "M4A1",
+      "M4A1"
+    ],
+    "rarity": 4,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "11": {
+    "id": "11",
+    "index": 11,
+    "name": [
+      "Kiana",
+      "Kiana Kaslana"
+    ],
+    "rarity": "EXTRA",
+    "type": "HG",
+    "has_MODIII": false,
+    "collab": "Houkai Gakuen 2"
+  },
+  "12": {
+    "id": "12",
+    "index": 12,
+    "name": [
+      "Seele",
+      "Seele"
+    ],
+    "rarity": "EXTRA",
+    "type": "AR",
+    "has_MODIII": false,
+    "collab": "Houkai Gakuen 2"
+  },
+  "13": {
+    "id": "13",
+    "index": 13,
+    "name": [
+      "FNFAL",
+      "FAL"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": false
+  },
+  "15": {
+    "id": "15",
+    "index": 15,
+    "name": [
+      "M200",
+      "M200"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "17": {
+    "id": "17",
+    "index": 17,
+    "name": [
+      "HK416",
+      "HK416"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "20": {
+    "id": "20",
+    "index": 20,
+    "name": [
+      "AK15",
+      "AK-15"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "21": {
+    "id": "21",
+    "index": 21,
+    "name": [
+      "AK12",
+      "AK-12"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": false
+  },
+  "22": {
+    "id": "22",
+    "index": 22,
+    "name": [
+      "AN94",
+      "AN-94"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "23": {
+    "id": "23",
+    "index": 23,
+    "name": [
+      "AK-Alfa",
+      "AK-Alfa"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": false
+  },
+  "24": {
+    "id": "24",
+    "index": 24,
+    "name": [
+      "9A-91",
+      "9A-91"
+    ],
+    "rarity": 4,
+    "type": "AR",
+    "has_MODIII": false
+  },
+  "25": {
+    "id": "25",
+    "index": 25,
+    "name": [
+      "Jill",
+      "Jill"
+    ],
+    "rarity": "EXTRA",
+    "type": "HG",
+    "has_MODIII": false,
+    "collab": "VA11HALLA"
+  },
+  "27": {
+    "id": "27",
+    "index": 27,
+    "name": [
+      "Contender",
+      "Contender"
+    ],
+    "rarity": 5,
+    "type": "HG",
+    "has_MODIII": false
+  },
+  "29": {
+    "id": "29",
+    "index": 29,
+    "name": [
+      "P30",
+      "P30"
+    ],
+    "rarity": 4,
+    "type": "HG",
+    "has_MODIII": false
+  },
+  "31": {
+    "id": "31",
+    "index": 31,
+    "name": [
+      "M4_SOPMOD_II",
+      "SOPMOD II"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "32": {
+    "id": "32",
+    "index": 32,
+    "name": [
+      "Roon",
+      "Roon"
+    ],
+    "rarity": "EXTRA",
+    "type": "AR",
+    "has_MODIII": false,
+    "collab": "Azur Lane"
+  },
+  "64": {
+    "id": "64",
+    "index": 64,
+    "name": [
+      "G36",
+      "Gr G36"
+    ],
+    "rarity": 4,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "115": {
+    "id": "115",
+    "index": 115,
+    "name": [
+      "KP31",
+      "Suomi"
+    ],
+    "rarity": 5,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "116": {
+    "id": "116",
+    "index": 116,
+    "name": [
+      "Rhino",
+      "Rhino"
+    ],
+    "rarity": 5,
+    "type": "HG",
+    "has_MODIII": false
+  },
+  "117": {
+    "id": "117",
+    "index": 117,
+    "name": [
+      "Raiden_Mei",
+      "Raiden Mei"
+    ],
+    "rarity": "EXTRA",
+    "type": "AR",
+    "has_MODIII": false,
+    "collab": "Houkai Gakuen 2"
+  },
+  "118": {
+    "id": "118",
+    "index": 118,
+    "name": [
+      "Himeko",
+      "Murata Himeko"
+    ],
+    "rarity": "EXTRA",
+    "type": "AR",
+    "has_MODIII": false,
+    "collab": "Houkai Gakuen 2"
+  },
+  "119": {
+    "id": "119",
+    "index": 119,
+    "name": [
+      "MP5",
+      "MP5"
+    ],
+    "rarity": 4,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "120": {
+    "id": "120",
+    "index": 120,
+    "name": [
+      "MG5",
+      "MG5"
+    ],
+    "rarity": 5,
+    "type": "MG",
+    "has_MODIII": false
+  },
+  "121": {
+    "id": "121",
+    "index": 121,
+    "name": [
+      "Negev",
+      "Negev"
+    ],
+    "rarity": 5,
+    "type": "MG",
+    "has_MODIII": false
+  },
+  "122": {
+    "id": "122",
+    "index": 122,
+    "name": [
+      "Carcano1938",
+      "Carcano 1938"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "123": {
+    "id": "123",
+    "index": 123,
+    "name": [
+      "Kar98K",
+      "Kar98k"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": true
+  },
+  "124": {
+    "id": "124",
+    "index": 124,
+    "name": [
+      "MLEMK1",
+      "Lee Enfield"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": true
+  },
+  "125": {
+    "id": "125",
+    "index": 125,
+    "name": [
+      "M14",
+      "M14"
+    ],
+    "rarity": 3,
+    "type": "RF",
+    "has_MODIII": true
+  },
+  "126": {
+    "id": "126",
+    "index": 126,
+    "name": [
+      "MondragonM1908",
+      "Mondragon"
+    ],
+    "rarity": 4,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "127": {
+    "id": "127",
+    "index": 127,
+    "name": [
+      "M1891",
+      "Mosin Nagant"
+    ],
+    "rarity": 4,
+    "type": "RF",
+    "has_MODIII": true
+  },
+  "128": {
+    "id": "128",
+    "index": 128,
+    "name": [
+      "PzB39",
+      "PzB39"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "129": {
+    "id": "129",
+    "index": 129,
+    "name": [
+      "SL8",
+      "SL8"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "130": {
+    "id": "130",
+    "index": 130,
+    "name": [
+      "VSK",
+      "VSK 94"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "131": {
+    "id": "131",
+    "index": 131,
+    "name": [
+      "UKM2000",
+      "UKM2000"
+    ],
+    "rarity": 4,
+    "type": "MG",
+    "has_MODIII": false
+  },
+  "132": {
+    "id": "132",
+    "index": 132,
+    "name": [
+      "VectorAgent",
+      "Agent Vector"
+    ],
+    "rarity": "EXTRA",
+    "type": "SMG",
+    "has_MODIII": false,
+    "collab": "The Division"
+  },
+  "133": {
+    "id": "133",
+    "index": 133,
+    "name": [
+      "HK416Agent",
+      "Agent HK416"
+    ],
+    "rarity": "EXTRA",
+    "type": "SMG",
+    "has_MODIII": false,
+    "collab": "The Division"
+  },
+  "134": {
+    "id": "134",
+    "index": 134,
+    "name": [
+      "Dorothy",
+      "Dorothy"
+    ],
+    "rarity": "EXTRA",
+    "type": "SMG",
+    "has_MODIII": false,
+    "collab": "VA11HALLA"
+  },
+  "135": {
+    "id": "135",
+    "index": 135,
+    "name": [
+      "Kazagumo",
+      "Kazagumo"
+    ],
+    "rarity": "EXTRA",
+    "type": "DD",
+    "has_MODIII": false,
+    "collab": "Azur Lane"
+  },
+  "136": {
+    "id": "136",
+    "index": 136,
+    "name": [
+      "Kearsarge",
+      "Kearsarge"
+    ],
+    "rarity": "EXTRA",
+    "type": "CV",
+    "has_MODIII": false,
+    "collab": "Azur Lane"
+  },
+  "137": {
+    "id": "137",
+    "index": 137,
+    "name": [
+      "SIGMCX",
+      "SIG MCX"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": false
+  },
+  "138": {
+    "id": "138",
+    "index": 138,
+    "name": [
+      "G11",
+      "Gr G11"
+    ],
+    "rarity": 5,
+    "type": "AR",
+    "has_MODIII": true
+  },
+  "139": {
+    "id": "139",
+    "index": 139,
+    "name": [
+      "DP-12",
+      "DP-12"
+    ],
+    "rarity": 5,
+    "type": "SG",
+    "has_MODIII": true
+  },
+  "140": {
+    "id": "140",
+    "index": 140,
+    "name": [
+      "M6ASW",
+      "M6 ASW"
+    ],
+    "rarity": 5,
+    "type": "SG",
+    "has_MODIII": false
+  },
+  "141": {
+    "id": "141",
+    "index": 141,
+    "name": [
+      "M500",
+      "M500"
+    ],
+    "rarity": 3,
+    "type": "SG",
+    "has_MODIII": true
+  },
+  "142": {
+    "id": "142",
+    "index": 142,
+    "name": [
+      "M1897",
+      "M1897"
+    ],
+    "rarity": 3,
+    "type": "SG",
+    "has_MODIII": true
+  },
+  "143": {
+    "id": "143",
+    "index": 143,
+    "name": [
+      "RMB93",
+      "RMB93"
+    ],
+    "rarity": 3,
+    "type": "SG",
+    "has_MODIII": true
+  },
+  "144": {
+    "id": "144",
+    "index": 144,
+    "name": [
+      "M1918",
+      "M1918"
+    ],
+    "rarity": 4,
+    "type": "MG",
+    "has_MODIII": true
+  },
+  "145": {
+    "id": "145",
+    "index": 145,
+    "name": [
+      "MG4",
+      "Gr MG4"
+    ],
+    "rarity": 5,
+    "type": "MG",
+    "has_MODIII": true
+  },
+  "146": {
+    "id": "146",
+    "index": 146,
+    "name": [
+      "MG338",
+      "MG338"
+    ],
+    "rarity": 5,
+    "type": "MG",
+    "has_MODIII": false
+  },
+  "147": {
+    "id": "147",
+    "index": 147,
+    "name": [
+      "80type",
+      "Type 80"
+    ],
+    "rarity": 4,
+    "type": "MG",
+    "has_MODIII": true
+  },
+  "148": {
+    "id": "148",
+    "index": 148,
+    "name": [
+      "APS",
+      "Stechkin"
+    ],
+    "rarity": 4,
+    "type": "HG",
+    "has_MODIII": true
+  },
+  "149": {
+    "id": "149",
+    "index": 149,
+    "name": [
+      "P90",
+      "P90"
+    ],
+    "rarity": 5,
+    "type": "SMG",
+    "has_MODIII": false
+  },
+  "150": {
+    "id": "150",
+    "index": 150,
+    "name": [
+      "PP19",
+      "PP-19"
+    ],
+    "rarity": 4,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "151": {
+    "id": "151",
+    "index": 151,
+    "name": [
+      "PPsh41",
+      "PPSh-41"
+    ],
+    "rarity": 2,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "152": {
+    "id": "152",
+    "index": 152,
+    "name": [
+      "RO635",
+      "RO635"
+    ],
+    "rarity": 5,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "153": {
+    "id": "153",
+    "index": 153,
+    "name": [
+      "Bronya",
+      "Bronya"
+    ],
+    "rarity": "EXTRA",
+    "type": "SG",
+    "has_MODIII": false,
+    "collab": "Houkai Gakuen 2"
+  },
+  "154": {
+    "id": "154",
+    "index": 154,
+    "name": [
+      "UMP9",
+      "UMP-9"
+    ],
+    "rarity": 4,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "155": {
+    "id": "155",
+    "index": 155,
+    "name": [
+      "UMP45",
+      "UMP-45"
+    ],
+    "rarity": 4,
+    "type": "SMG",
+    "has_MODIII": true
+  },
+  "292": {
+    "id": "292",
+    "index": 292,
+    "name": [
+      "RPK-16",
+      "RPK-16"
+    ],
+    "rarity": 5,
+    "type": "MG",
+    "has_MODIII": true
+  },
+  "316": {
+    "id": "316",
+    "index": 316,
+    "name": [
+      "GeneralLiu",
+      "General Liu"
+    ],
+    "rarity": 5,
+    "type": "RF",
+    "has_MODIII": false
+  },
+  "1000": {
+    "id": "1000",
+    "index": 1000,
+    "name": [
+      "Noa",
+      "Ushio Noa"
+    ],
+    "rarity": "EXTRA",
+    "type": "HG",
+    "has_MODIII": false,
+    "collab": "Blue Archive"
+  },
+  "1001": {
+    "id": "1001",
+    "index": 1001,
+    "name": [
+      "Hoshino",
+      "Takanashi Hoshino"
+    ],
+    "rarity": "EXTRA",
+    "type": "SG",
+    "has_MODIII": false,
+    "collab": "Blue Archive"
+  }
+}
