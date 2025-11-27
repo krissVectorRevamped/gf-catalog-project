@@ -119,3 +119,17 @@
 .admin_editor button:hover {
   background: #303030;
 }
+
+.preview-img {
+  width: 120px;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.existing-image-block {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 6px;
+}
+

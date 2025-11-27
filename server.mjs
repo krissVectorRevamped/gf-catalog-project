@@ -4,6 +4,16 @@ import cors from 'cors';
 import multer from "multer";
 import path from "path";
 
+// stores uploaded files in the /uploads folder
+const storage = multer.diskStorage({
+  destination: './uploads/',
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
 const app = express();
 app.use(cors());
 app.use(express.json());

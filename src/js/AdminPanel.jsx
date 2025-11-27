@@ -68,121 +68,117 @@ export default function AdminPanel() {
   }
 
   // Form component
-  function CharacterEditForm({ initialData, onCancel }) {
-    const [replaceImage, setReplaceImage] = useState(false);
-    const [formData, setFormData] = useState(initialData || {});
+ function CharacterEditForm({ initialData, onSaved, onCancel }) {
+  const [formData, setFormData] = useState(initialData);
+  const [showFileInput, setShowFileInput] = useState(!initialData.image);
 
-    function handleChange(e) {
-      const { name, value } = e.target;
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  function handleImageChange(e) {
+    setFormData({ ...formData, imageFile: e.target.files[0] });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const dataToSend = new FormData();
+
+    // attach normal text fields
+    Object.keys(formData).forEach((key) => {
+      if (key !== "imageFile") {
+        dataToSend.append(key, formData[key]);
+      }
+    });
+
+    // if user selected a new image file
+    if (formData.imageFile) {
+      dataToSend.append("image", formData.imageFile);
     }
 
-    function handleNameChange(idx, value) {
-      const names = Array.isArray(formData.name) ? [...formData.name] : ["",""];
-      names[idx] = value;
-      setFormData(prev => ({ ...prev, name: names }));
-    }
+    const url = formData.id
+      ? `/api/characters/${formData.id}` // edit
+      : `/api/characters`; // new
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      // convert certain fields if needed, e.g. has_MODIII to boolean
-      const payload = {
-        ...formData,
-        has_MODIII: formData.has_MODIII === "true" || formData.has_MODIII === true
-      };
-      handleSave(payload);
-    }
+    const method = formData.id ? "put" : "post";
 
-    function handleFileChange(e) {
-  const file = e.target.files[0];
-  if (!file) return;
+    axios({
+      method: method,
+      url: url,
+      data: dataToSend,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(() => onSaved())
+      .catch((err) => console.error(err));
+  }
 
-  const formData = new FormData();
-  formData.append("image", file);
+  return (
+    <form className="edit-form" onSubmit={handleSubmit}>
+      <h3>{formData.id ? "Edit Character" : "Add New Character"}</h3>
 
-  axios.post("http://localhost:3001/api/upload", formData, {
-    headers: { "Content-Type": "multipart/form-data" },
-  })
-  .then(res => {
-    setFormData(prev => ({ ...prev, image: res.data.url }));
-    setReplaceImage(false); // optional: hide file input after successful upload
-  })
-  .catch(err => console.error("Upload failed:", err));
+      <input
+        name="name"
+        placeholder="Name"
+        value={formData.name || ""}
+        onChange={handleChange}
+      />
+
+      <input
+        name="series"
+        placeholder="Series"
+        value={formData.series || ""}
+        onChange={handleChange}
+      />
+
+      <input
+        name="faction"
+        placeholder="Faction"
+        value={formData.faction || ""}
+        onChange={handleChange}
+      />
+
+      <textarea
+        name="description"
+        placeholder="Description"
+        value={formData.description || ""}
+        onChange={handleChange}
+      />
+
+      {/* Intelligent Image Section */}
+      <div className="image-section">
+        <label>Character Image:</label>
+
+        {formData.image && !showFileInput ? (
+          <div className="existing-image-block">
+            <img
+              src={`/src/char_img/${formData.image}`}
+              alt="Character"
+              className="preview-img"
+            />
+            <button
+              type="button"
+              onClick={() => setShowFileInput(true)}
+            >
+              Change Picture
+            </button>
+          </div>
+        ) : (
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+        )}
+      </div>
+
+      <div className="form-buttons">
+        <button type="submit">Save</button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
+    </form>
+  );
 }
 
-    return (
-      <form className={styles.admin_editor} onSubmit={handleSubmit}>
-        <h3>{formData.id != null ? "Edit Character" : "Add Character"}</h3>
 
-        <input
-          name="name0"
-          placeholder="Name[0]"
-          value={formData.name?.[0] || ""}
-          onChange={e => handleNameChange(0, e.target.value)}
-        />
-        <input
-          name="name1"
-          placeholder="Name[1]"
-          value={formData.name?.[1] || ""}
-          onChange={e => handleNameChange(1, e.target.value)}
-        />
-
-        <input
-          name="type"
-          placeholder="Type"
-          value={formData.type || ""}
-          onChange={handleChange}
-        />
-        <input
-          name="rarity"
-          placeholder="Rarity"
-          value={formData.rarity || ""}
-          onChange={handleChange}
-        />
-
-        <input
-          name="has_MODIII"
-          placeholder="has_MODIII (true or false)"
-          value={formData.has_MODIII ?? ""}
-          onChange={handleChange}
-        />
-        <input
-          name="collab"
-          placeholder="Collab (optional)"
-          value={formData.collab || ""}
-          onChange={handleChange}
-        />
-        <div>
-  {formData.image ? (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <img src={formData.image} alt="Preview" width={100} />
-    <button type="button" onClick={() => setFormData({...formData, image: null})}>
-      Change Image
-    </button>
-  </div>
-) : (
-  <input type="file" onChange={handleFileChange} />
-)}
-
-
-  {(replaceImage || !formData.image) && (
-    <input type="file" onChange={handleFileChange} />
-  )}
-</div>
-
-
-        <div className={styles.form_buttons}>
-          <button type="submit" className={styles.admin_button}>Save</button>
-          <button type="button" onClick={onCancel} className={styles.admin_button}>
-            Cancel
-          </button>
-        </div>
-      </form>
-    );
-  }
 
   if (loading) {
     return <div>Loading characters…</div>;
